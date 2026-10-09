@@ -32,8 +32,7 @@ in
       http://127.0.0.1:8000
 
     ${pkgs.tailscale}/bin/tailscale serve \
-      --https=443 \
-      --set-path=/notes \
+      --https=8443 \
       --bg \
       http://127.0.0.1:9000
 
