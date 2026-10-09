@@ -23,6 +23,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    sops.templates."notesync-labels" = {
+      owner = "podman-captain";
+      group = "podman-captain";
+      mode = "0400";
+
+      content = ''
+        redjaxk.name=Fast Note Sync
+        redjaxk.url=https://${config.networking.hostName}.${config.sops.placeholder.tailscale-domain}:9000
+      '';
+    };
     systemd.tmpfiles.rules = [
       "d /var/lib/podman-captain/fast-note-sync 0750 podman-captain podman-captain -"
       "d /var/lib/podman-captain/fast-note-sync/storage 0750 podman-captain podman-captain -"
@@ -43,6 +53,9 @@ in
 
         containerConfig = {
           image = cfg.image;
+          podmanArgs = [
+            "--label-file=${config.sops.templates."notesync-labels".path}"
+          ];
           publishPorts = [ "127.0.0.1:9000:9000" ];
           userns = "keep-id";
 

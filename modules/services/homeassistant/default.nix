@@ -24,6 +24,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    sops.templates."homeassistant-labels" = {
+      owner = "podman-captain";
+      group = "podman-captain";
+      mode = "0400";
+
+      content = ''
+        redjaxk.name=Home Assistant
+        redjaxk.url=https://${config.networking.hostName}.${config.sops.placeholder.tailscale-domain}
+      '';
+    };
     systemd.tmpfiles.rules = [
       "d /var/lib/podman-captain/homeassistant 0750 podman-captain podman-captain -"
     ];
@@ -42,6 +52,9 @@ in
 
         containerConfig = {
           image = cfg.image;
+          podmanArgs = [
+            "--label-file=${config.sops.templates."homeassistant-labels".path}"
+          ];
           #@NOTE: On initial setup, reverse proxy must be set up within the UI.
           #       First load the initial server and then imperatively change it via UI.
           publishPorts = [ "127.0.0.1:8123:8123" ];

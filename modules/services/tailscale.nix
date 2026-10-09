@@ -26,13 +26,12 @@ in
 
   script = ''
     ${pkgs.tailscale}/bin/tailscale serve \
-      --https=443 \
-      --set-path=/warden \
+      --https=8000 \
       --bg \
       http://127.0.0.1:8000
 
     ${pkgs.tailscale}/bin/tailscale serve \
-      --https=8443 \
+      --https=9000 \
       --bg \
       http://127.0.0.1:9000
 

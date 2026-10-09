@@ -6,6 +6,9 @@
       autoStart = true;
       containerConfig = {
         image = "docker.io/itzg/minecraft-server:latest";
+        labels = {
+          "redjaxk.name" = "Minecraft";
+        };
         publishPorts = [
           "25565:25565"
           "10.100.0.2:24454:24454/udp"
