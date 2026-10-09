@@ -2,6 +2,7 @@
   pkgs,
   vars,
   config,
+  inputs,
   ...
 }:
 
@@ -43,9 +44,22 @@
     homeassistant.enable = true;
   };
 
+  home-manager.users.dio = {
+    home.stateVersion = "26.05";
+    imports = [ inputs.redjaxk.homeManagerModules.default ];
+
+    services.redjaxk-agent = {
+      enable = false;
+      environment.REDJAXK_NODE_ID = "ishtar-1";
+    };
+  };
+
   networking = {
     firewall = {
-      allowedUDPPorts = [ 51820 24454 ];
+      allowedUDPPorts = [
+        51820
+        24454
+      ];
       allowedTCPPorts = [ 25565 ];
       interfaces.wg-edge0.allowedTCPPorts = [ 25565 ];
     };

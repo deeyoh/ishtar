@@ -151,6 +151,26 @@
         "type": "github"
       }
     },
+    "redjaxk": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791506848,
+        "narHash": "sha256-jeNuCe/nlsPoQrrkvxIvrRvvNf2PjnbB2Xf/PBKMXqI=",
+        "owner": "dioeos",
+        "repo": "redjaxk",
+        "rev": "2c3bfe7deb627812f4d913dd0056a3c50cb562d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dioeos",
+        "repo": "redjaxk",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "colmena": "colmena",
@@ -158,6 +178,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "quadlet-nix": "quadlet-nix",
+        "redjaxk": "redjaxk",
         "sops-nix": "sops-nix"
       }
     },
