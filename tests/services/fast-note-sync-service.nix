@@ -44,6 +44,7 @@ pkgs.testers.runNixOSTest {
     home-manager.extraSpecialArgs = { inherit inputs; };
     services.fast-note-sync = {
       enable = true;
+      enableRedjaxkDiscovery = false;
       image = "localhost/fast-note-sync-test:latest";
       autoStart = false;
     };

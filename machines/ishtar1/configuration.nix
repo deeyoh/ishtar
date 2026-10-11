@@ -42,7 +42,10 @@
   };
 
   services = {
-    fast-note-sync.enable = true;
+    fast-note-sync = {
+      enable = true;
+      enableRedjaxkDiscovery = true;
+    };
     homeassistant.enable = true;
     actual-budget.enable = true;
   };
