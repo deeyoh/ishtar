@@ -23,6 +23,7 @@
     # === SERVICE MODULES ===
     ../../modules/services/fast-note-sync
     ../../modules/services/homeassistant
+    ../../modules/services/actual-budget
   ];
 
   networking.hostName = "ishtar1";
@@ -43,6 +44,7 @@
   services = {
     fast-note-sync.enable = true;
     homeassistant.enable = true;
+    actual-budget.enable = true;
   };
 
   users.groups.redjaxk-ipc = { };

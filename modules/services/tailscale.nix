@@ -36,6 +36,11 @@ in
       http://127.0.0.1:9000
 
     ${pkgs.tailscale}/bin/tailscale serve \
+      --https=5006 \
+      --bg \
+      http://127.0.0.1:5006
+
+    ${pkgs.tailscale}/bin/tailscale serve \
       --https=443 \
       --bg \
       http://127.0.0.1:8123
