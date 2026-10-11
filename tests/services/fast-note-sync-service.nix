@@ -35,6 +35,8 @@ pkgs.testers.runNixOSTest {
     ];
 
     imports = [
+      #sops-nix needs to be imported even if sops templates + redjaxk discovery disabled
+      inputs.sops-nix.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager
       inputs.quadlet-nix.nixosModules.quadlet
       ../../modules/services/fast-note-sync

@@ -44,7 +44,7 @@ in
 
           containerConfig = {
             image = cfg.image;
-            podmanArgs = lib.options cfg.enableRedjaxkDiscovery [
+            podmanArgs = lib.optionals cfg.enableRedjaxkDiscovery [
               "--label-file=${config.sops.templates."notesync-labels".path}"
             ];
             publishPorts = [ "127.0.0.1:9000:9000" ];
