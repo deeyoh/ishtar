@@ -7,8 +7,9 @@
     settings = {
       font-size = 16;
       cursor-style = "block";
-      background-opacity = 0.7;
+      background-opacity = 0.8;
       background-blur = true;
+      theme = "HaX0R Blue";
     };
   };
 }
