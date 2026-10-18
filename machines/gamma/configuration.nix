@@ -36,6 +36,7 @@
         ../../modules/home/terminal/tmux.nix
         ../../modules/home/terminal/zsh.nix
         ../../modules/home/terminal/direnv.nix
+        ../../modules/home/terminal/pi.nix
       ];
     };
   };

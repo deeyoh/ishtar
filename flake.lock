@@ -116,6 +116,27 @@
         "type": "github"
       }
     },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "pi-flake",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783436070,
+        "narHash": "sha256-F80z1JoiJgZyTT5D+3siLOVzqmCEphLR7t0Ym/I2CLI=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "f09af49406ffad37acb6538d3207189a1a1e0b7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "homebrew-cask": {
       "flake": false,
       "locked": {
@@ -255,6 +276,27 @@
         "type": "github"
       }
     },
+    "pi-flake": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792241837,
+        "narHash": "sha256-t6Pn1oOy479P7WF75rs/grmdYasc9lJXVvx3UV9yy8s=",
+        "owner": "ChauDucToan",
+        "repo": "pi-flake",
+        "rev": "7c858dae89d81436b330ef94bbac082b58caed3b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ChauDucToan",
+        "repo": "pi-flake",
+        "type": "github"
+      }
+    },
     "quadlet-nix": {
       "locked": {
         "lastModified": 1785695563,
@@ -282,6 +324,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "nixpkgs-darwin": "nixpkgs-darwin",
+        "pi-flake": "pi-flake",
         "quadlet-nix": "quadlet-nix",
         "sops-nix": "sops-nix"
       }

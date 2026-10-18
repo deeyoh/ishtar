@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    pi-flake = {
+      url = "github:ChauDucToan/pi-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
    nix-homebrew = {
      url = "github:zhaofengli/nix-homebrew";
      inputs.nixpkgs.follows = "nixpkgs-darwin";
