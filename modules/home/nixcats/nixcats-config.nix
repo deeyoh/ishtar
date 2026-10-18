@@ -62,7 +62,7 @@ in
           ];
         };
 
-        lspAndRuntimeDeps = {
+        lspsAndRuntimeDeps = {
           tools = with pkgs; [
             ripgrep
             fd
