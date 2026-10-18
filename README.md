@@ -1,1 +1,1 @@
-All machine configs + infra
+All machine configs + infra (dots + lab)
