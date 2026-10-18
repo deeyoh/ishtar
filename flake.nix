@@ -53,16 +53,24 @@
       ...
     }:
     let
-      workstation_system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        system = workstation_system;
-        config = {
-          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+      workstation_system = "x8_64-linux";
+      platforms = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+
+      forAllPlatforms = f:
+        nixpkgs.lib.genAttrs platforms (system: f (mkPkgs system));
+
+      mkPkgs = system: import nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [
             "terraform"
           ];
-        };
       };
 
+      
       vars = import ./vars.nix;
 
       mkNixOSConfig =
@@ -90,12 +98,15 @@
         tests = import ./tests { inherit pkgs inputs; };
 
       ishtar1path = ./machines/ishtar1/configuration.nix;
+      pkgs = mkPkgs workstation_system;
     in
     {
-      devShells.${workstation_system}.default = import ./shell.nix {
-        inherit pkgs;
-        colmena = colmena.packages.${workstation_system}.colmena;
-      };
+      devShells = forAllPlatforms (pkgs: {
+        default = import ./shell.nix { 
+          inherit pkgs;
+          colmena = colmena.packages.${pkgs.stdenv.hostPlatform.system}.colmena;
+        };
+      });
 
       checks.${workstation_system} = tests;
 
