@@ -1,1 +1,1 @@
-All machines
+All machine configs + infra
