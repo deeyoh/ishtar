@@ -28,26 +28,15 @@
 
     extraSpecialArgs = { inherit inputs; };
     users.dio = {
+      home.stateVersion = "26.05";
       imports = [
         ../../modules/home/nixcats/nixcats-config.nix
         ../../modules/home/terminal/ghostty.nix
         ../../modules/home/general/chrome.nix
+        ../../modules/home/terminal/tmux.nix
+        ../../modules/home/terminal/zsh.nix
+        ../../modules/home/terminal/direnv.nix
       ];
-      programs.zsh = {
-        enable = true;
-	enableCompletion = true;
-	autosuggestion.enable = true;
-	syntaxHighlighting.enable = true;
-	shellAliases = {
-          rebuild = "sudo darwin-rebuild switch --flake ~/ishtar#gamma";
-	};
-	history = {
-	  size = 10000;
-	  save = 10000;
-	  ignoreDups = true;
-	};
-      };
-      home.stateVersion = "26.05";
     };
   };
 }
