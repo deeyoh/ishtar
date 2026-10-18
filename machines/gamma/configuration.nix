@@ -3,6 +3,7 @@
     inputs.home-manager.darwinModules.default
     ../../modules/home/general/homebrew.nix
     ../../modules/home/general/discord.nix
+    ../../modules/home/general/aerospace.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
