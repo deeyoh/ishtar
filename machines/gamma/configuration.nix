@@ -3,6 +3,7 @@
     inputs.home-manager.darwinModules.default
   ];
 
+  nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nix.settings.experimental-features = "nix-command flakes";
   programs.zsh.enable = true;
@@ -21,6 +22,11 @@
 
     extraSpecialArgs = { inherit inputs; };
     users.dio = {
+      imports = [
+        ../../modules/home/nixcats/nixcats-config.nix
+        ../../modules/home/terminal/ghostty.nix
+        ../../modules/home/general/chrome.nix
+      ];
       programs.zsh = {
         enable = true;
 	enableCompletion = true;
