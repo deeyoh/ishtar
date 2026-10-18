@@ -50,39 +50,13 @@
     actual-budget.enable = true;
   };
 
-  users.groups.redjaxk-ipc = { };
-  users.users = {
-    ${vars.userName} = {
-      extraGroups = [
-        "redjaxk-ipc"
-      ];
-      linger = true;
-    };
-  };
-
-  systemd.tmpfiles.rules = [
-    "d /run/redjaxk 2750 podman-captain redjaxk-ipc -"
-  ];
-
   home-manager.users = {
     dio = {
       home.stateVersion = "26.05";
-      imports = [ inputs.redjaxk.homeManagerModules.default ];
-
-      services.redjaxk-agent = {
-        enable = true;
-        environment.REDJAXK_NODE_ID = "ishtar-1";
-      };
     };
 
     podman-captain = {
       home.stateVersion = "26.05";
-      imports = [ inputs.redjaxk.homeManagerModules.default ];
-
-      services.redjaxk-podgate.enable = true;
-      systemd.user.services.redjaxk-podgate.Service.Environment = [
-        "PATH=${pkgs.lib.makeBinPath [ pkgs.podman ]}"
-      ];
     };
   };
 

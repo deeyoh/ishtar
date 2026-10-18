@@ -141,6 +141,21 @@
         "type": "github"
       }
     },
+    "nixCats": {
+      "locked": {
+        "lastModified": 1787720571,
+        "narHash": "sha256-jvoTU61m2p2knJMIvDwWqkhf5CrmKCkiCO0KR3GIryw=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "8fcebab53bfe800b963e8db5e28b63baa65850d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1787204541,
@@ -188,36 +203,16 @@
         "type": "github"
       }
     },
-    "redjaxk": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1791680001,
-        "narHash": "sha256-YF9A9PP72ZsoOq7l6SaZv/BwhdZ02wbvVlgA2pf0Ni4=",
-        "owner": "dioeos",
-        "repo": "redjaxk",
-        "rev": "a5f96165467c3ca9db22d2b83d9b2e346ac6a14a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dioeos",
-        "repo": "redjaxk",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "colmena": "colmena",
         "disko": "disko",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
+        "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "nixpkgs-darwin": "nixpkgs-darwin",
         "quadlet-nix": "quadlet-nix",
-        "redjaxk": "redjaxk",
         "sops-nix": "sops-nix"
       }
     },
