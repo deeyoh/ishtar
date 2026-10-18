@@ -2,12 +2,14 @@
   imports = [
     inputs.home-manager.darwinModules.default
     ../../modules/home/general/homebrew.nix
+    ../../modules/home/general/discord.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nix.settings.experimental-features = "nix-command flakes";
   programs.zsh.enable = true;
+  system.primaryUser = "dio";
   system.stateVersion = 6;
 
   environment.systemPackages = with pkgs; [

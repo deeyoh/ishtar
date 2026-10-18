@@ -7,4 +7,5 @@
     user = "dio";
     mutableTaps = false;
   };
+  homebrew.enable = true;
 }
