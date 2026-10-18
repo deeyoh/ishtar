@@ -3,6 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
 
     colmena = {
       url = "github:zhaofengli/colmena";
@@ -152,6 +158,12 @@
             ./iso/config.nix
           ];
         };
+      };
+
+      darwinConfigurations.gamma = inputs.nix-darwin.lib.darwinSystem {
+        modules = [
+          ./machines/gamma/configuration.nix
+        ];
       };
 
       packages.aarch64-linux.oracle-vps-image =
