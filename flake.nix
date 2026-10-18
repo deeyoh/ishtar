@@ -161,6 +161,7 @@
       };
 
       darwinConfigurations.gamma = inputs.nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit inputs; };
         modules = [
           ./machines/gamma/configuration.nix
         ];
