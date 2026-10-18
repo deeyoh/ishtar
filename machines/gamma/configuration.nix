@@ -4,6 +4,8 @@
     ../../modules/home/general/homebrew.nix
     ../../modules/home/general/discord.nix
     ../../modules/home/general/aerospace.nix
+    ../../modules/home/general/bitwarden.nix
+    ../../modules/home/general/tailscale.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
