@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: {
   imports = [
     inputs.home-manager.darwinModules.default
+    ../../modules/home/general/homebrew.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

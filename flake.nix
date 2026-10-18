@@ -10,6 +10,21 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+   nix-homebrew = {
+     url = "github:zhaofengli/nix-homebrew";
+     inputs.nixpkgs.follows = "nixpkgs-darwin";
+   };
+
+   homebrew-core = {
+     url = "github:homebrew/homebrew-core";
+     flake = false;
+   };
+
+   homebrew-cask = {
+     url = "github:homebrew/homebrew-cask";
+     flake = false;
+   };
+
    nixCats = {
      url = "github:BirdeeHub/nixCats-nvim";
      inputs.nixpkgs.follows = "nixpkgs";
