@@ -25,9 +25,47 @@ in
       in
       {
         startupPlugins = {
+          completion = with pkgs.vimPlugins; [
+            blink-cmp
+            luasnip
+            friendly-snippets
+            promise-async
+          ];
+
+          navigation = with pkgs.vimPlugins; [
+            telescope-nvim
+            plenary-nvim
+            harpoon
+          ];
+
           colorschemes = with pkgs.vimPlugins; [
           ] ++ [
             customColorschemes.miku
+          ];
+
+          lazy = with pkgs.vimPlugins; [
+            lze
+          ];
+
+          lspConfig = with pkgs.vimPlugins; [
+            nvim-lspconfig
+          ];
+        };
+
+        optionalPlugins = {
+          tools = with pkgs.vimPlugins; [
+            themery-nvim
+            oil-nvim
+            flash-nvim
+            marks-nvim
+            nvim-ufo
+          ];
+        };
+
+        lspAndRuntimeDeps = {
+          tools = with pkgs; [
+            ripgrep
+            fd
           ];
         };
       };
@@ -39,7 +77,12 @@ in
           };
 
           categories = {
+            completion = true;
+            navigation  =true;
             colorschemes = true;
+            lazy = true;
+            lspConfig = true;
+            tools = true;
           };
         };
       };
