@@ -7,10 +7,15 @@
     prefix = "C-s";
     terminal = "tmux-256color";
     extraConfig = ''
-      bind C-h select-pane -L
-      bind C-j select-pane -D
-      bind C-k select-pane -U
-      bind C-l select-pane -R
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+
+      bind -n C-h select-pane -L
+      bind -n C-j select-pane -D
+      bind -n C-k select-pane -U
+      bind -n C-l select-pane -R
       bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded!"
       
 
