@@ -145,8 +145,9 @@
 
           ${pkgs.iptables}/bin/iptables -A FORWARD \
             -i enp0s6 \
+            -o wg-edge0 \
             -p udp \
-            -d 10.100.02 \
+            -d 10.100.0.2 \
             --dport 24454 \
             -j ACCEPT
 
@@ -160,9 +161,9 @@
 
         postShutdown = ''
           ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING \
-            -i enp0s6
+            -i enp0s6 \
             -p tcp \
-            -dport 25565 \
+            --dport 25565 \
             -j DNAT --to-destination 10.100.0.2:25565
 
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING \
