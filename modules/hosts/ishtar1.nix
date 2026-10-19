@@ -2,8 +2,11 @@
   system = "x86_64-linux";
 in
 {
-  flake.nixosModules.ishtar1 = {
+  flake.nixosModules.ishtar1 = { pkgs, ... }: {
     imports = [
+      # temp
+      inputs.sableai.packages.${pkgs.stdenv.hostPlatform.system}.bot
+
       # shared infra
       (config.flake.homeManager system)
       config.flake.nixosModules.gen-base
