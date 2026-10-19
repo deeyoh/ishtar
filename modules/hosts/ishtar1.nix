@@ -29,6 +29,14 @@ in
     ];
 
     nixpkgs.hostPlatform = system;
+
+    home-manager = {
+      users.dio = {
+        imports = [
+          config.flake.modules.homeManager.chrome
+        ];
+      };
+    };
   };
 
   flake.nixosConfigurations.ishtar1 = inputs.nixpkgs.lib.nixosSystem {
