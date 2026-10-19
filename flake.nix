@@ -32,7 +32,6 @@
 
     nixCats = {
       url = "github:BirdeeHub/nixCats-nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     colmena = {
@@ -52,7 +51,6 @@
 
     quadlet-nix = {
       url = "github:SEIAROTg/quadlet-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {

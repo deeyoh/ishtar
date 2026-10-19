@@ -31,6 +31,7 @@ in
     nixpkgs.hostPlatform = system;
 
     home-manager = {
+      useGlobalPkgs = true;
       users.dio = {
         imports = [
           config.flake.modules.homeManager.chrome
