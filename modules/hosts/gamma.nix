@@ -30,7 +30,6 @@ in
         imports = [
           config.flake.modules.homeManager.neovim
           config.flake.modules.homeManager.bitwarden-ssh
-          config.flake.modules.homeManager.aerospace
           config.flake.modules.homeManager.chrome
           config.flake.modules.homeManager.direnv
           config.flake.modules.homeManager.ghostty
