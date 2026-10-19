@@ -1,5 +1,5 @@
 {
-  flake.homeModules.zsh = { pkgs, ... }: {
+  flake.modules.homeManager.zsh = { pkgs, ... }: {
     home.packages = with pkgs; [
       pure-prompt
     ];

@@ -2,7 +2,7 @@
   utils = inputs.nixCats.utils;
 in
 {
-  flake.homeModules.neovim = {
+  flake.modules.homeManager.neovim = {
     imports = [
       inputs.nixCats.homeModule
     ];

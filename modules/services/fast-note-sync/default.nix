@@ -1,7 +1,7 @@
 { config, ... }: {
-  flake.nixosModules.fast-note-sync = {
+  flake.modules.nixos.fast-note-sync = {
     imports = [
-      config.flake.nixosModules.utils
+      config.flake.modules.nixos.utils
       ./service.pkg.nix
     ];
   };

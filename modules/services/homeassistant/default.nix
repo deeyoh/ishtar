@@ -1,7 +1,7 @@
 { config, ... }: {
-  flake.nixosModules.homeassistant = {
+  flake.modules.nixos.homeassistant = {
     imports = [
-      config.flake.nixosModules.utils
+      config.flake.modules.nixos.utils
       ./service.pkg.nix
     ];
   };

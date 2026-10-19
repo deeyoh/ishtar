@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.podman-rootless = {
+  flake.modules.nixos.podman-rootless = {
     virtualisation.quadlet.enable = true;
 
     users.groups.podman-captain = {};

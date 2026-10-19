@@ -1,20 +1,20 @@
 { config, ... }: {
   # install bitwarden via desktop due to GUI issues
   # when installing via home manager (same for discord)
-  flake.darwinModules.bitwarden = {
+  flake.modules.darwin.bitwarden = {
     homebrew = {
       enable = true;
       casks = [ "bitwarden" ];
     };
   };
 
-  flake.nixosModules.bitwarden = { pkgs, ... }: {
+  flake.modules.nixos.bitwarden = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       bitwarden-desktop
     ];
   };
 
-  flake.homeModules.bitwarden-ssh = { config, ... }: {
+  flake.modules.homeManager.bitwarden-ssh = { config, ... }: {
     programs.ssh = {
       enable = true;
       matchBlocks = {
@@ -31,11 +31,11 @@
     };
   };
 
-  # for linux, only need to import `config.flake.homeModules.bitwarden`,
+  # for linux, only need to import `config.flake.modules.homeManager.bitwarden`,
   # macos requires a separate darwin module + the defined `bitwarden-ssh` module
-  flake.homeModules.bitwarden = { pkgs, ... }: {
+  flake.modules.homeManager.bitwarden = { pkgs, ... }: {
     imports = [
-      config.flake.homeModules.bitwarden-ssh
+      config.flake.modules.homeManager.bitwarden-ssh
     ];
 
     home.packages = with pkgs; [

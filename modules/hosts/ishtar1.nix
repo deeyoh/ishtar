@@ -2,29 +2,30 @@
   system = "x86_64-linux";
 in
 {
-  flake.nixosModules.ishtar1 = { pkgs, ... }: {
+  flake.modules.nixos.ishtar1 = { pkgs, ... }: {
     imports = [
-      # temp
-      inputs.sableai.packages.${pkgs.stdenv.hostPlatform.system}.bot
-
       # shared infra
-      (config.flake.homeManager system)
-      config.flake.nixosModules.gen-base
-      config.flake.nixosModules.quadlet
-      config.flake.nixosModules.podman-rootless
-      config.flake.nixosModules.nixos-base
+      config.flake.modules.nixos.home-manager
+      config.flake.modules.nixos.gen-base
+      config.flake.modules.nixos.quadlet
+      config.flake.modules.nixos.podman-rootless
+      config.flake.modules.nixos.nixos-base
 
       # services
-      config.flake.nixosModules.actual-budget
-      config.flake.nixosModules.fast-note-sync
-      config.flake.nixosModules.homeassistant
-      config.flake.nixosModules.minecraft-server
-      config.flake.nixosModules.tailscale
-      config.flake.nixosModules.tailscale-serve
-      config.flake.nixosModules.vault-warden
+      config.flake.modules.nixos.actual-budget
+      config.flake.modules.nixos.fast-note-sync
+      config.flake.modules.nixos.homeassistant
+      config.flake.modules.nixos.minecraft-server
+      config.flake.modules.nixos.tailscale
+      config.flake.modules.nixos.tailscale-serve
+      config.flake.modules.nixos.vault-warden
 
       # machine-specific config
       ../../machines/ishtar1/configuration.nix
+    ];
+
+    environment.systemPackages = [
+      inputs.sableai.packages.${pkgs.stdenv.hostPlatform.system}.bot
     ];
 
     nixpkgs.hostPlatform = system;
@@ -37,7 +38,7 @@ in
     };
 
     modules = [
-      config.flake.nixosModules.ishtar1
+      config.flake.modules.nixos.ishtar1
     ];
   };
 }

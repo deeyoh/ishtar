@@ -14,7 +14,7 @@
 
     ishtar1 = {
       imports = [
-        config.flake.nixosModules.ishtar1
+        config.flake.modules.nixos.ishtar1
       ];
 
       deployment = {
@@ -25,7 +25,7 @@
 
     ishtar-edge = {
       imports = [
-        config.flake.nixosModules.ishtar-edge
+        config.flake.modules.nixos.ishtar-edge
       ];
 
       deployment = {

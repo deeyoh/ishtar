@@ -2,9 +2,9 @@
   system = "aarch64-linux";
 in
 {
-  flake.nixosModules.ishtar-edge = {
+  flake.modules.nixos.ishtar-edge = {
     imports = [
-      config.flake.nixosModules.gen-base
+      config.flake.modules.nixos.gen-base
       ../../machines/ishtar-edge/configuration.nix
     ];
 
@@ -18,7 +18,7 @@ in
     };
 
     modules = [
-      config.flake.nixosModules.ishtar-edge
+      config.flake.modules.nixos.ishtar-edge
     ];
   };
 }

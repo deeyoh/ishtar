@@ -2,13 +2,13 @@
   system = "aarch64-darwin";
 in
 {
-  flake.darwinModules.gamma = { pkgs, ... }: {
+  flake.modules.darwin.gamma = { pkgs, ... }: {
     imports = [
-      (config.flake.homeManager system)
-      config.flake.darwinModules.homebrew
-      config.flake.darwinModules.bitwarden
-      config.flake.darwinModules.discord
-      config.flake.darwinModules.tailscale-non-headless
+      config.flake.modules.darwin.home-manager
+      config.flake.modules.darwin.homebrew
+      config.flake.modules.darwin.bitwarden
+      config.flake.modules.darwin.discord
+      config.flake.modules.darwin.tailscale
     ];
 
     system.primaryUser = "dio";
@@ -28,16 +28,16 @@ in
       users.dio = {
         home.stateVersion = "26.05";
         imports = [
-          config.flake.homeModules.neovim
-          config.flake.homeModules.bitwarden-ssh
-          config.flake.homeModules.aerospace
-          config.flake.homeModules.chrome
-          config.flake.homeModules.direnv
-          config.flake.homeModules.ghostty
-          config.flake.homeModules.jujutsu
-          config.flake.homeModules.pi
-          config.flake.homeModules.tmux
-          config.flake.homeModules.zsh
+          config.flake.modules.homeManager.neovim
+          config.flake.modules.homeManager.bitwarden-ssh
+          config.flake.modules.homeManager.aerospace
+          config.flake.modules.homeManager.chrome
+          config.flake.modules.homeManager.direnv
+          config.flake.modules.homeManager.ghostty
+          config.flake.modules.homeManager.jujutsu
+          config.flake.modules.homeManager.pi
+          config.flake.modules.homeManager.tmux
+          config.flake.modules.homeManager.zsh
         ];
       };
     };
@@ -47,7 +47,7 @@ in
     specialArgs = { inherit inputs; };
 
     modules = [
-      config.flake.darwinModules.gamma
+      config.flake.modules.darwin.gamma
     ];
   };
 }

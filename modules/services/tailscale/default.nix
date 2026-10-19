@@ -1,12 +1,12 @@
 { config, ... }: {
-  flake.nixosModules.tailscale-serve = {
+  flake.modules.nixos.tailscale-serve = {
     imports = [
-      config.flake.nixosModules.utils
+      config.flake.modules.nixos.utils
       ./tailscale-serve.pkg.nix
     ];
   };
 
-  flake.nixosModules.tailscale = {
+  flake.modules.nixos.tailscale = {
     imports = [
       ./tailscale.pkg.nix
     ];

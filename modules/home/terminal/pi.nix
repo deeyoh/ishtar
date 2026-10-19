@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  flake.homeModules.pi = {
+  flake.modules.homeManager.pi = {
     imports = [
       inputs.pi-flake.homeManagerModules.default
     ];

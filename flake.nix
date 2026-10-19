@@ -69,6 +69,7 @@
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
+        flake-parts.flakeModules.modules
         ((import inputs.import-tree)
           .filterNot (inputs.nixpkgs.lib.hasSuffix ".pkg.nix")
           ./modules)

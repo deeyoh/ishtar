@@ -1,3 +1,3 @@
 {
-  flake.nixosModules.utils = ./utils.pkg.nix;
+  flake.modules.nixos.utils = ./utils.pkg.nix;
 }

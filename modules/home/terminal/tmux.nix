@@ -1,5 +1,5 @@
 {
-  flake.homeModules.tmux = {
+  flake.modules.homeManager.tmux = {
     programs.tmux = {
       enable = true;
       clock24 = true;

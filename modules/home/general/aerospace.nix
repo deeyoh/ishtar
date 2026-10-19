@@ -3,7 +3,7 @@ let
   workspaces = map toString (lib.range 1 9);
 in
 {
-  flake.homeModules.aerospace = {
+  flake.modules.homeManager.aerospace = {
     programs.aerospace = {
       enable = true;
 
