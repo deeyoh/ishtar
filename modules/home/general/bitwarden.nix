@@ -17,7 +17,8 @@
   flake.modules.homeManager.bitwarden-ssh = { config, ... }: {
     programs.ssh = {
       enable = true;
-      matchBlocks = {
+      enableDefaultConfig = false;
+      settings = {
         "github.com" = {
           identityFile = "~/.ssh/id_ed25519";
         };
