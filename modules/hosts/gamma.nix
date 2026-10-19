@@ -36,7 +36,6 @@ in
           config.flake.modules.homeManager.ghostty
           config.flake.modules.homeManager.jujutsu
           config.flake.modules.homeManager.pi
-          config.flake.modules.homeManager.tmux
           config.flake.modules.homeManager.zsh
         ];
       };
