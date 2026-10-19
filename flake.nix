@@ -67,18 +67,11 @@
 
   outputs =
     inputs@{ flake-parts, ... }:
-    let
-      lib = inputs.nixpkgs.lib;
-
-      tree = (import inputs.import-tree).filterNot (
-        path:
-          lib.hasSuffix ".pkg.nix" path
-          || lib.hasPrefix "/home/" path
-      );
-    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        (tree ./modules)
+        ((import inputs.import-tree)
+          .filterNot (inputs.nixpkgs.lib.hasSuffix ".pkg.nix")
+          ./modules)
       ];
     };
   # outputs =

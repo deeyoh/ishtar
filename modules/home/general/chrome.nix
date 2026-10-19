@@ -1,5 +1,7 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    google-chrome
-  ];
+{
+  flake.homeModules.chrome = { pkgs, ...}: {
+    home.packages = with pkgs; [
+      google-chrome
+    ];
+  };
 }
