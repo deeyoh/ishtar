@@ -17,6 +17,12 @@ in
 
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = "nix-command flakes";
+    nix.linux-builder = {
+      enable = true;
+      ephemeral = true;
+      maxJobs = 4;
+    };
+    nix.settings.trusted-users = [ "root" "dio" ];
     nixpkgs.hostPlatform = system;
     users.users.dio.home = "/Users/dio";
 
