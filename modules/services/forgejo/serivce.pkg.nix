@@ -1,7 +1,13 @@
-let
+{ config, ... }: let
   domain = "git.deeyoh.io";
 in
 {
+  # package for cli on path
+  environment.systemPackages = [
+    config.services.forgejo.package
+  ];
+
+  sops.secrets.cloudflare-acme = { };
   services.forgejo = {
     enable = true;
 
@@ -27,7 +33,7 @@ in
       };
 
       service = {
-        DISABLE_REGISTRATION = false;
+        DISABLE_REGISTRATION = true;
       };
 
       session.COOKIE_SECURE = true;
@@ -38,7 +44,7 @@ in
     enable = true;
     recommendedProxySettings = true;
 
-    virtualHosts = {
+    virtualHosts.${domain} = {
       forceSSL = true;
       enableACME = true;
 
@@ -54,6 +60,12 @@ in
   security.acme = {
     acceptTerms = true;
     defaults.email = "er.dioneda@gmail.com";
+
+    certs."git.deeyoh.io" = {
+      webroot = null;
+      dnsProvider = "cloudflare";
+      environmentFile = "/run/secrets/cloudflare-acme";
+    };
   };
 
   networking.firewall.allowedTCPPorts = [
