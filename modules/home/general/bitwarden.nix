@@ -1,6 +1,4 @@
-{ config, ... }: let
-  identityAgent = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
-in {
+{ config, ... }: {
   # install bitwarden via desktop due to GUI issues
   # when installing via home manager (same for discord)
   flake.modules.darwin.bitwarden = {
@@ -16,7 +14,9 @@ in {
     ];
   };
 
-  flake.modules.homeManager.bitwarden-ssh = { config, ... }: {
+  flake.modules.homeManager.bitwarden-ssh = { config, ... }: let
+    identityAgent = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
+  in {
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
