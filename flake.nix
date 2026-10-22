@@ -58,7 +58,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sableai.url = "github:dioeos/sableai";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:denful/import-tree";
   };
