@@ -35,6 +35,8 @@
         "ishtar1" = {
           user = "dio";
           identityAgent = identityAgent;
+          identityFile = "~/.ssh/ishtar1.pub";
+          identitiesOnly = true;
         };
       };
     };
