@@ -25,10 +25,6 @@ in
       ../../machines/ishtar1/configuration.nix
     ];
 
-    environment.systemPackages = [
-      inputs.sableai.packages.${pkgs.stdenv.hostPlatform.system}.bot
-    ];
-
     nixpkgs.hostPlatform = system;
 
     home-manager = {
