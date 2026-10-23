@@ -31,6 +31,37 @@
     fast-note-sync.enable = true;
     homeassistant.enable = true;
     actual-budget.enable = true;
+
+    services.searxng = {
+      enable = true;
+      port = 8888;
+
+      settings = {
+        general = {
+          instance_name = "Ishtar Search";
+          enable_metrics = false;
+        };
+
+        search = {
+          autocomplete = "duckduckgo";
+          safe_search = 0;
+          default_lang = "en";
+          formats = [ "html" "json" ];
+        };
+
+        server = {
+          limiter = false;
+          public_instance = false;
+          image_proxy = true;
+        };
+
+        ui = {
+          default_theme = "simple";
+          query_in_title = true;
+          infinite_scroll = false;
+        };
+      };
+    };
   };
 
   home-manager.users = {
