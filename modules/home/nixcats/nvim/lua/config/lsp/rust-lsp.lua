@@ -9,9 +9,9 @@ vim.lsp.config("rust_analyzer", {
 
   settings = {
     ["rust-analyzer"] = {
-      cargo = {
-        target = "wasm32-unknown-unknown",
-      },
+      -- cargo = {
+      --   target = "wasm32-unknown-unknown",
+      -- },
 
       diagnostics = {
         enable = true
