@@ -20,6 +20,7 @@ in
       config.flake.modules.nixos.tailscale-serve
       config.flake.modules.nixos.vault-warden
       config.flake.modules.nixos.forgejo
+      config.flake.modules.nixos.searxng
 
       # machine-specific config
       ../../machines/ishtar1/configuration.nix

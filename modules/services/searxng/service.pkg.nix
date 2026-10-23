@@ -24,19 +24,11 @@
       };
     } cfg.settings
   );
+
+  domain = "search.deeyoh.io";
 in
 {
   options.services.searxng = {
-    sops.secrets.searxng-secret = { };
-    sops.templates."searxng.env" = {
-      owner = "podman-captain";
-      group = "podman-captain";
-      mode = "0400";
-
-      content = ''
-        SEARXNG_SECRET=${config.sops.placeholder.searxng-secret}
-      '';
-    };
     enable = lib.mkEnableOption "searxng";
     image = lib.mkOption {
       type = lib.types.str;
@@ -60,6 +52,50 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    services.nginx = {
+      enable = true;
+      recommendedProxySettings = true;
+      virtualHosts.${domain} = {
+        forceSSL = true;
+        enableACME = true;
+
+        extraConfig = ''
+          client_max_body_size 512M;
+        '';
+
+        locations."/".proxyPass =
+          "http://127.0.0.1:8888";
+      };
+    };
+
+    security.acme = {
+      acceptTerms = true;
+      defaults.email = "er.dioneda@gmail.com";
+
+      certs."search.deeyoh.io" = {
+        webroot = null;
+        dnsProvider = "cloudflare";
+        environmentFile = "/run/secrets/cloudflare-acme";
+      };
+    };
+
+    networking.firewall.allowedTCPPorts = [
+      22
+      80
+      443
+    ];
+
+    sops.secrets.searxng-secret = { };
+    sops.secrets.cloudflare-acme = { };
+    sops.templates."searxng.env" = {
+      owner = "podman-captain";
+      group = "podman-captain";
+      mode = "0400";
+
+      content = ''
+        SEARXNG_SECRET=${config.sops.placeholder.searxng-secret}
+      '';
+    };
     systemd.tmpfiles.rules = [
       "d /var/lib/podman-captain/searxng 0750 podman-captain podman-captain -"
       "d /var/lib/podman-captain/searxng/cache 0750 podman-captain podman-captain -"
@@ -81,7 +117,7 @@ in
 
         containerConfig = {
           image = cfg.image ;
-          publishPorts = [ "127.0.0.1:${toString cfg.port}:8888" ];
+          publishPorts = [ "127.0.0.1:${toString cfg.port}:8080" ];
           userns = "keep-id";
 
           volumes = [

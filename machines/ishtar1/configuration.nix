@@ -32,7 +32,7 @@
     homeassistant.enable = true;
     actual-budget.enable = true;
 
-    services.searxng = {
+    searxng = {
       enable = true;
       port = 8888;
 

@@ -38,6 +38,11 @@
         --tcp=50051 \
         --bg \
         tcp://127.0.0.1:50051
+
+      ${pkgs.tailscale}/bin/tailscale serve \
+        --https=8888 \
+        --bg \
+        http://127.0.0.1:8888
     '';
   };
 }
