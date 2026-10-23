@@ -16,6 +16,9 @@
         ignoreDups = true;
       };
 
+      #@TODO: Make this an option so each machine can define its own shell alias
+      #       These should just be shared aliases, while we peform a merge of the 2
+      #       sets to create one per machine
       shellAliases = {
         rebuild = "sudo darwin-rebuild switch --flake ~/ishtar#gamma";
         check = "sudo darwin-rebuild check --flake ~/ishtar#gamma";
@@ -30,6 +33,7 @@
         zstyle ':prompt:pure:environment:nix-shell' show no
         export VIRTUAL_ENV_DISABLE_PROMPT=1
         export DIRENV_LOG_FORMAT=""
+        export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
 
         nix_shell_prompt_info() {
           if [[ -n "$IN_NIX_SHELL" || -n "$DIRENV_DIR" ]]; then
