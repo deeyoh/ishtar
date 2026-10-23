@@ -9,6 +9,7 @@ in
       config.flake.modules.darwin.bitwarden
       config.flake.modules.darwin.discord
       config.flake.modules.darwin.tailscale
+      config.flake.modules.darwin.dinky
     ];
 
     system.primaryUser = "dio";
