@@ -5,6 +5,9 @@ in
   flake.modules.nixos.ishtar-edge = {
     imports = [
       config.flake.modules.nixos.gen-base
+
+      config.flake.modules.nixos.tailscale
+
       ../../machines/ishtar-edge/configuration.nix
     ];
 

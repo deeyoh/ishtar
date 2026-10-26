@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, inputs, ... }: {
   flake.modules.nixos.tailscale-serve = {
     imports = [
       config.flake.modules.nixos.utils

@@ -1,4 +1,4 @@
-{ pkgs, ishtarUtils, ... }: {
+{ config, ishtarUtils, ... }: {
   systemd.services.tailscale-serve = {
     description = "Configure Tailscale Serve routes";
 
@@ -14,32 +14,32 @@
     };
 
     script = ''
-      ${pkgs.tailscale}/bin/tailscale serve \
+      ${config.services.tailscale.package}/bin/tailscale serve \
         --https=8000 \
         --bg \
         http://127.0.0.1:8000
 
-      ${pkgs.tailscale}/bin/tailscale serve \
+      ${config.services.tailscale.package}/bin/tailscale serve \
         --https=9000 \
         --bg \
         http://127.0.0.1:9000
 
-      ${pkgs.tailscale}/bin/tailscale serve \
+      ${config.services.tailscale.package}/bin/tailscale serve \
         --https=5006 \
         --bg \
         http://127.0.0.1:5006
 
-      ${pkgs.tailscale}/bin/tailscale serve \
+      ${config.services.tailscale.package}/bin/tailscale serve \
         --https=8443 \
         --bg \
         http://127.0.0.1:8123
 
-      ${pkgs.tailscale}/bin/tailscale serve \
+      ${config.services.tailscale.package}/bin/tailscale serve \
         --tcp=50051 \
         --bg \
         tcp://127.0.0.1:50051
 
-      ${pkgs.tailscale}/bin/tailscale serve \
+      ${config.services.tailscale.package}/bin/tailscale serve \
         --https=8888 \
         --bg \
         http://127.0.0.1:8888
