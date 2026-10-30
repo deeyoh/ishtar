@@ -26,9 +26,13 @@
       };
 
       initContent = ''
-        if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-          tmux attach-session -t default || tmux new-session -s default
+        if [ -n "$REX_BIN_DIR" ]; then
+          export PATH="$REX_BIN_DIR:$PATH"
         fi
+
+        # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+        #   tmux attach-session -t default || tmux new-session -s default
+        # fi
 
         zstyle ':prompt:pure:environment:nix-shell' show no
         export VIRTUAL_ENV_DISABLE_PROMPT=1

@@ -43,6 +43,7 @@ in
           config.flake.modules.homeManager.jujutsu
           config.flake.modules.homeManager.pi
           config.flake.modules.homeManager.zsh
+          config.flake.modules.homeManager.rex
         ];
       };
     };
