@@ -41,3 +41,5 @@ rex.bind("ctrl+s>k", "client.palette.toggle")
 
 
 rex.bind("ctrl+s>s", "session.switch")
+rex.bind("ctrl+s>n", "session.next")
+rex.bind("ctrl+s>b", "session.previous")
