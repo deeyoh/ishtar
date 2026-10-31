@@ -5,6 +5,7 @@ rex.bind("ctrl+s>shift+\\", "pane.split", { direction = "right" })
 rex.bind("ctrl+s>-", "pane.split", { direction = "down" })
 rex.bind("ctrl+s>x", "pane.close")
 rex.bind("ctrl+s>e", "pane.balance")
+rex.bind("ctrl+s>z", "pane.zoom")
 
 local directions = {
   h = "left",
