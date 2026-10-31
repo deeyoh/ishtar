@@ -27,13 +27,17 @@ in
       ../../machines/ishtar1/configuration.nix
     ];
 
+    programs.zsh.enable = true;
+    nix.settings.experimental-features = "nix-command flakes";
+
     nixpkgs.hostPlatform = system;
 
     home-manager = {
       useGlobalPkgs = true;
       users.dio = {
         imports = [
-          config.flake.modules.homeManager.chrome
+          # config.flake.modules.homeManager.chrome
+          config.flae.modules.homeManager.zsh
         ];
       };
     };
