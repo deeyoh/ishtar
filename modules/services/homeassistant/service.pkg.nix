@@ -23,6 +23,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    services.udev.extraRules = ''
+      SUBSYSTEM=="tty", KERNEL=="ttyUSB*", ATTRS{serial}=="ee14bc1d4329f111bc2a40adfa551895", OWNER="podman-captain", MODE="0600"
+    '';
+
     # sops.templates."homeassistant-labels" = {
     #   owner = "podman-captain";
     #   group = "podman-captain";
