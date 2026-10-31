@@ -8,7 +8,10 @@ in
       config.flake.modules.nixos.home-manager
       config.flake.modules.nixos.gen-base
       config.flake.modules.nixos.quadlet
-      config.flake.modules.nixos.podman-rootless
+
+      config.flake.modules.nixos.podman-rootless-quadlet
+      config.flake.modules.nixos.podman
+
       config.flake.modules.nixos.nixos-base
 
       # services
