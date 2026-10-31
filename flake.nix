@@ -66,6 +66,8 @@
       url = "github:mikker/homebrew-tap";
       flake = false;
     };
+
+    rex.url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
   };
 
   outputs =

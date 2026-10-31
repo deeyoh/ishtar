@@ -21,6 +21,7 @@ in
       config.flake.modules.nixos.vault-warden
       config.flake.modules.nixos.forgejo
       config.flake.modules.nixos.searxng
+      config.flake.modules.nixos.rex-server
 
       # machine-specific config
       ../../machines/ishtar1/configuration.nix
