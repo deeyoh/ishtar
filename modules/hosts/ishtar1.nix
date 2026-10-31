@@ -18,7 +18,7 @@ in
       config.flake.modules.nixos.actual-budget
       config.flake.modules.nixos.fast-note-sync
       config.flake.modules.nixos.homeassistant
-      config.flake.modules.nixos.minecraft-server
+      # config.flake.modules.nixos.minecraft-server
       config.flake.modules.nixos.tailscale
       config.flake.modules.nixos.tailscale-serve
       config.flake.modules.nixos.vault-warden
