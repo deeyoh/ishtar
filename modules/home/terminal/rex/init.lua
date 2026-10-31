@@ -17,6 +17,10 @@ for key, direction in pairs(directions) do
   rex.bind("ctrl+" .. key, "pane.focus", {
     direction = direction
   })
+
+  rex.bind("ctrl+s>shift+" .. key, "pane.move", {
+    direction = direction
+  })
 end
 
 rex.bind("ctrl+s>r", "client.config.reload")
@@ -33,3 +37,6 @@ for i = 1, 9 do
 end
 
 rex.bind("ctrl+s>k", "client.palette.toggle")
+
+
+rex.bind("ctrl+s>s", "session.switch")
