@@ -10,8 +10,12 @@
         upstream = pkgs.pi or (pkgs.callPackage "${inputs.pi-flake}/package.nix" { });
       in if pkgs.stdenv.hostPlatform.isLinux then
         upstream.overrideAttrs (old: {
+          dontStrip = true;
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.autoPatchelfHook ];
-          buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.stdenv.cc.cc.lib ];
+          buildInputs = (old.buildInputs or [ ]) ++ [
+            pkgs.stdenv.cc.cc.lib
+            pkgs.libxcb
+          ];
         })
       else upstream;
 
