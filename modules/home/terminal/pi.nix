@@ -1,10 +1,19 @@
 { inputs, ... }: {
-  flake.modules.homeManager.pi = {
+  flake.modules.homeManager.pi = { pkgs, ... }: {
     imports = [
       inputs.pi-flake.homeManagerModules.default
     ];
     programs.pi-coding-agent = {
       enable = true;
+      # The upstream prebuilt Linux binary needs a Nix ELF interpreter/RPATH.
+      package = let
+        upstream = pkgs.pi or (pkgs.callPackage "${inputs.pi-flake}/package.nix" { });
+      in if pkgs.stdenv.hostPlatform.isLinux then
+        upstream.overrideAttrs (old: {
+          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.autoPatchelfHook ];
+          buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.stdenv.cc.cc.lib ];
+        })
+      else upstream;
 
       agentFiles = {
         settings = {
