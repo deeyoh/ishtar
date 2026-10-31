@@ -1,4 +1,5 @@
-{ config, vars, ... }: let
+{ config, ... }: let
+  vars = import ../../../vars.nix;
   home_bitwarden_forgejo_public_key_path = ".ssh/bitwarden_forgejo.pub";
   bitwarden_forgejo_public_key_path = "~/${home_bitwarden_forgejo_public_key_path}";
 in {
