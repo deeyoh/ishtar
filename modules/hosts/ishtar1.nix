@@ -33,11 +33,12 @@ in
     nixpkgs.hostPlatform = system;
 
     home-manager = {
+      backupFileExtension = "hm-backup";
       useGlobalPkgs = true;
       users.dio = {
         imports = [
           # config.flake.modules.homeManager.chrome
-          config.flae.modules.homeManager.zsh
+          config.flake.modules.homeManager.zsh
         ];
       };
     };
