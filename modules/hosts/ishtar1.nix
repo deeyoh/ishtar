@@ -38,6 +38,9 @@ in
       users.dio = {
         imports = [
           # config.flake.modules.homeManager.chrome
+          config.flake.modules.homeManager.neovim
+          config.flake.modules.homeManager.jujutsu
+          config.flake.modules.homeManager.pi
           config.flake.modules.homeManager.zsh
         ];
       };
