@@ -9,4 +9,5 @@
   sshPublicKeyIshtarEdgeUser = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBGLPlpMCtlEbNkZXW9Sjm3rSEvVT+xbRN5UC3yqX37V";
   wireGuardPublicKeyIshtarEdge = "U5AivL7cpYUKx1fkEeaHR2hAxp6AJ+RPlIHMyJpDSwU=";
   wireGuardPublicKeyIshtar1= "SuHR7NXQMc/gpPVLR0itKrHd1N/1NFTwaXX2a4HP2yQ=";
+  bw_sshSharedForgejoPubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIOwwgPqkDwIp6Yq7gExxqBgvJhz7mKzzMQ1mhWE15RA";
 }
