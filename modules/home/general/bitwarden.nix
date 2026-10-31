@@ -38,6 +38,16 @@
           identityFile = "~/.ssh/ishtar1.pub";
           identitiesOnly = true;
         };
+
+        "ishtar1-ssh-agent" = {
+          hostName = "ishtar1";
+          user = "dio";
+          identityAgent = identityAgent;
+          identityFile = "~/.ssh/ishtar1.pub";
+          identitiesOnly = true;
+          remoteForward = "/home/dio/.ssh/bitwarden-forward.sock ${identityAgent}";
+          exitOnForwardFailure = true;
+        };
       };
     };
   };
