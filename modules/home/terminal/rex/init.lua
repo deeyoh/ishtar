@@ -29,7 +29,6 @@ rex.bind("ctrl+s>r", "client.config.reload")
 
 rex.bind("ctrl+s>c", "client.tab.new")
 rex.bind("ctrl+s>shift+x", "client.tab.close")
-rex.bind("ctrl+n", "client.tab.next")
 
 for i = 1, 9 do
   rex.bind("ctrl+s>" .. i, "client.tab.goto", {
