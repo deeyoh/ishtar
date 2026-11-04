@@ -10,4 +10,5 @@
   wireGuardPublicKeyIshtarEdge = "U5AivL7cpYUKx1fkEeaHR2hAxp6AJ+RPlIHMyJpDSwU=";
   wireGuardPublicKeyIshtar1= "SuHR7NXQMc/gpPVLR0itKrHd1N/1NFTwaXX2a4HP2yQ=";
   bw_sshSharedForgejoPubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIOwwgPqkDwIp6Yq7gExxqBgvJhz7mKzzMQ1mhWE15RA";
+  bw_sshSharedGitPubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID9aGIDr9bq48OfGjgLQbox/WrsK9uxzorsbrfu2fR2V er.dioneda@gmail.com";
 }

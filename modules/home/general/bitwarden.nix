@@ -2,6 +2,9 @@
   vars = import ../../../vars.nix;
   home_bitwarden_forgejo_public_key_path = ".ssh/bitwarden_forgejo.pub";
   bitwarden_forgejo_public_key_path = "~/${home_bitwarden_forgejo_public_key_path}";
+
+  home_bitwarden_git_public_key_path = ".ssh/bitwarden_git.pub";
+  bitwarden_git_public_key_path = "~/${home_bitwarden_git_public_key_path}";
 in {
   # install bitwarden via desktop due to GUI issues
   # when installing via home manager (same for discord)
@@ -79,14 +82,24 @@ in {
     home.file.${home_bitwarden_forgejo_public_key_path}.text =
       vars.bw_sshSharedForgejoPubKey;
 
+    home.file.${home_bitwarden_git_public_key_path}.text =
+      vars.bw_sshSharedGitPubKey;
+
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      settings."git.deeyoh.io" = {
-        user = "forgejo";
-        identityFile = bitwarden_forgejo_public_key_path;
-        identitiesOnly = true;
-        # No identityAgent override: SSH uses SSH_AUTH_SOCK.
+      settings = {
+        "git.deeyoh.io" = {
+          user = "forgejo";
+          identityFile = bitwarden_forgejo_public_key_path;
+          identitiesOnly = true;
+          # No identityAgent override: SSH uses SSH_AUTH_SOCK.
+        };
+
+        "github.com" = {
+          identityFile = bitwarden_git_public_key_path;
+          identitiesOnly = true;
+        };
       };
     };
   };
