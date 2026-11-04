@@ -97,6 +97,7 @@ in {
         };
 
         "github.com" = {
+          user = "git";
           identityFile = bitwarden_git_public_key_path;
           identitiesOnly = true;
         };
