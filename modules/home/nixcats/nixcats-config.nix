@@ -38,6 +38,7 @@ in
             ];
 
             colorschemes = with pkgs.vimPlugins; [
+              gruber-darker-nvim
             ] ++ [
               customColorschemes.miku
             ];

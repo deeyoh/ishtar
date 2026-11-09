@@ -13,29 +13,13 @@ require("lze").load({
       require("themery").setup({
         themes = {
           {
-            name = "oxocarbon",
-            colorscheme = "oxocarbon"
+            name = "hm",
+            colorscheme = "hatsunemiku",
           },
           {
-            name = "kanagawa",
-            colorscheme = "kanagawa"
+            name = "gruber",
+            colorscheme = "gruber-dark"
           },
-          {
-            name = "merle",
-            colorscheme = "merle"
-          },
-          {
-            name = "ashen",
-            colorscheme = "ashen"
-          },
-          {
-            name = "vesper",
-            colorscheme = "vesper"
-          },
-          {
-            name = "guts",
-            colorscheme = "guts"
-          }
         }
       })
     end

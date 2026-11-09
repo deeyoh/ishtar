@@ -11,4 +11,4 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("hatsunemiku")
+vim.cmd.colorscheme("gruber-darker")
