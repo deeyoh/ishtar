@@ -49,6 +49,12 @@ in
           config.flake.modules.homeManager.forwarded-ssh-agent
         ];
       };
+
+      users.podman-captain = {
+        imports = [
+          config.flake.modules.homeManager.neovim
+        ];
+      };
     };
   };
 
