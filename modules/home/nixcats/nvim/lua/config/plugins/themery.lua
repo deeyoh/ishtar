@@ -18,7 +18,7 @@ require("lze").load({
           },
           {
             name = "gruber",
-            colorscheme = "gruber-dark"
+            colorscheme = "gruber-darker"
           },
         }
       })
