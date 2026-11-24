@@ -23,6 +23,7 @@
         rebuild = "sudo darwin-rebuild switch --flake ~/ishtar#gamma";
         check = "sudo darwin-rebuild check --flake ~/ishtar#gamma";
         rez = "source ~/.zshrc";
+        tx = "tuxedo";
       };
 
       initContent = ''

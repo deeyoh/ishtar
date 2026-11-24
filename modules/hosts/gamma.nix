@@ -45,6 +45,7 @@ in
           config.flake.modules.homeManager.pi
           config.flake.modules.homeManager.zsh
           config.flake.modules.homeManager.rex
+          config.flake.modules.homeManager.tuxedo
         ];
       };
     };
